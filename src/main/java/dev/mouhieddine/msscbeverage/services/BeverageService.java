@@ -14,4 +14,6 @@ public interface BeverageService {
   BeverageDto save(BeverageDto beverageDto);
 
   void updateBeverage(UUID id, BeverageDto beverageDto);
+
+  void deleteById(UUID id);
 }

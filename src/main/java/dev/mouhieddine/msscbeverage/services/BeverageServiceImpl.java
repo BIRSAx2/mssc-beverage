@@ -1,6 +1,7 @@
 package dev.mouhieddine.msscbeverage.services;
 
 import dev.mouhieddine.msscbeverage.web.model.BeverageDto;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
@@ -10,6 +11,7 @@ import java.util.UUID;
  * @since : 1/31/2021, Sunday
  **/
 @Service
+@Slf4j
 public class BeverageServiceImpl implements BeverageService {
 
 //  BeverageRepository beverageRepository;
@@ -32,6 +34,11 @@ public class BeverageServiceImpl implements BeverageService {
 
   @Override
   public void updateBeverage(UUID id, BeverageDto beverageDto) {
-    //to do implement
+    // todo: implement
+  }
+
+  @Override
+  public void deleteById(UUID id) {
+    // todo: implement
   }
 }
