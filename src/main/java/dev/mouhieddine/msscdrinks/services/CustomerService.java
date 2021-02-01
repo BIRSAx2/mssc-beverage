@@ -1,6 +1,6 @@
-package dev.mouhieddine.msscbeverage.services;
+package dev.mouhieddine.msscdrinks.services;
 
-import dev.mouhieddine.msscbeverage.web.model.CustomerDto;
+import dev.mouhieddine.msscdrinks.web.model.CustomerDto;
 
 import java.util.UUID;
 

@@ -1,6 +1,6 @@
-package dev.mouhieddine.msscbeverage.services;
+package dev.mouhieddine.msscdrinks.services;
 
-import dev.mouhieddine.msscbeverage.web.model.BeverageDto;
+import dev.mouhieddine.msscdrinks.web.model.DrinkDto;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -12,13 +12,13 @@ import java.util.UUID;
  **/
 @Service
 @Slf4j
-public class BeverageServiceImpl implements BeverageService {
+public class DrinkServiceImpl implements DrinkService {
 
 //  BeverageRepository beverageRepository;
 
   @Override
-  public BeverageDto getBeverageById(UUID id) {
-    return BeverageDto.builder()
+  public DrinkDto getDrinkById(UUID id) {
+    return DrinkDto.builder()
             .id(UUID.randomUUID())
             .name("Lemon Soda")
             .type("Soda")
@@ -26,14 +26,14 @@ public class BeverageServiceImpl implements BeverageService {
   }
 
   @Override
-  public BeverageDto save(BeverageDto beverageDto) {
-    return BeverageDto.builder()
+  public DrinkDto save(DrinkDto drinkDto) {
+    return DrinkDto.builder()
             .id(UUID.randomUUID())
             .build();
   }
 
   @Override
-  public void updateBeverage(UUID id, BeverageDto beverageDto) {
+  public void updateDrink(UUID id, DrinkDto drinkDto) {
     // todo: implement
   }
 

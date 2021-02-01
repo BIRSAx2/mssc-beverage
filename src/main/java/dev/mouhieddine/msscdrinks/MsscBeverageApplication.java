@@ -1,4 +1,4 @@
-package dev.mouhieddine.msscbeverage;
+package dev.mouhieddine.msscdrinks;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,4 +1,4 @@
-package dev.mouhieddine.msscbeverage.repositories;
+package dev.mouhieddine.msscdrinks.repositories;
 
 /**
  * @author : Mouhieddine.dev

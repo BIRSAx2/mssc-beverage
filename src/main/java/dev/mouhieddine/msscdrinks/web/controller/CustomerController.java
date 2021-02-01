@@ -1,7 +1,7 @@
-package dev.mouhieddine.msscbeverage.web.controller;
+package dev.mouhieddine.msscdrinks.web.controller;
 
-import dev.mouhieddine.msscbeverage.services.CustomerService;
-import dev.mouhieddine.msscbeverage.web.model.CustomerDto;
+import dev.mouhieddine.msscdrinks.services.CustomerService;
+import dev.mouhieddine.msscdrinks.web.model.CustomerDto;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
