@@ -5,10 +5,12 @@ import dev.mouhieddine.msscdrinks.services.DrinkService;
 import dev.mouhieddine.msscdrinks.web.model.DrinkDto;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.UUID;
@@ -24,6 +26,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * @author : Mouhieddine.dev
  * @since : 2/15/2021, Monday
  **/
+@ExtendWith(SpringExtension.class)
 @WebMvcTest(DrinkController.class)
 public class DrinkControllerTest {
 
@@ -55,7 +58,7 @@ public class DrinkControllerTest {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON))
             .andExpect(jsonPath("$.id", is(validDrink.getId().toString())))
-            .andExpect(jsonPath("$.name", is("Lemon Soda")));
+            .andExpect(jsonPath("$.name", is(validDrink.getName())));
   }
 
   @Test
@@ -64,13 +67,13 @@ public class DrinkControllerTest {
     DrinkDto drinkDto = validDrink;
     drinkDto.setId(null);
     DrinkDto savedDto = DrinkDto.builder().id(UUID.randomUUID()).name("New drink").build();
-    String beerDtoJson = objectMapper.writeValueAsString(drinkDto);
+    String drinkDtoJson = objectMapper.writeValueAsString(drinkDto);
 
     given(drinkService.save(any())).willReturn(savedDto);
 
     mockMvc.perform(post(DrinkController.BASE_URL + "/")
             .contentType(MediaType.APPLICATION_JSON)
-            .content(beerDtoJson))
+            .content(drinkDtoJson))
             .andExpect(status().isCreated());
 
   }

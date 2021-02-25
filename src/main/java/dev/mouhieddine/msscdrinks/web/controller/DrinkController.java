@@ -7,7 +7,10 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.ConstraintViolationException;
 import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -41,7 +44,6 @@ public class DrinkController {
 
   @PutMapping({"/{id}"})
   @ResponseStatus(HttpStatus.NO_CONTENT)
-
   public void updateDrink(@PathVariable UUID id, @Valid @RequestBody DrinkDto drinkDto) {
     drinkService.updateDrink(id, drinkDto);
   }
@@ -50,5 +52,16 @@ public class DrinkController {
   @ResponseStatus(HttpStatus.NO_CONTENT)
   public void deleteDrink(@PathVariable UUID id) {
     drinkService.deleteById(id);
+  }
+
+  @ExceptionHandler(ConstraintViolationException.class)
+  public ResponseEntity<List> validationErrorHandler(ConstraintViolationException e) {
+    List<String> errors = new ArrayList<>(e.getConstraintViolations().size());
+
+    e.getConstraintViolations().forEach(constraintViolation -> {
+      errors.add(constraintViolation.getPropertyPath() + " : " + constraintViolation.getMessage());
+    });
+
+    return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
   }
 }
