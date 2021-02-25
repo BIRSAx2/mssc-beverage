@@ -19,6 +19,7 @@ import java.util.UUID;
  * @author : Mouhieddine.dev
  * @since : 1/30/2021, Saturday
  **/
+
 @Validated
 @RestController
 @RequestMapping(DrinkController.BASE_URL)
